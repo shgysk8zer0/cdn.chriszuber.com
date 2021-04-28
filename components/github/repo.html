@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<style>
+			:host {
+				display: inline-block;
+				font-family: 'Roboto', sans-serif;
+				text-align: left;
+				padding: 0.7em 0.8em;
+				margin: 0.5em;
+				border: 1px solid #cecece;
+				border-radius: 8px;
+				overflow: auto;
+				line-height: 1.4;
+			}
+
+			[part~="link"] {
+				text-decoration: underline;
+				color: inherit;
+			}
+
+			[part~="icon"] {
+				color: inherit;
+				fill: currentColor;
+				vertical-align: middle;
+				width: 1em;
+				height: 1em;
+			}
+
+			.underline {
+				text-decoration: underline;
+			}
+
+			.color-inherit {
+				color: inherit;
+			}
+		</style>
+	</head>
+	<body>
+		<details>
+			<summary>Data</summary>
+			<pre>
+				<code>
+					<slot name="data"></slot>
+				</code>
+			</pre>
+		</details>
+		<div part="container">
+			<header part="repo">
+				<h4 part="repo-header">
+					<slot name="repo-link" class="color-inherit underline">Unknown Repo</slot>
+					<a href="" part="repo-link link" hidden="">
+						<span part="name">Unknown Repo</span>
+					</a>
+				</h4>
+				<a href="" rel="noopener external" part="issues link" hidden="">
+					<svg part="issues-icon icon" width="14" height="16" viewBox="0 0 14 16">
+						<path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/>
+					</svg>
+					<span part="issue-count">0</span>
+					<span>Issues</span>
+				</a>
+				<blockquote part="description"></blockquote>
+			</header>
+			<div part="user">
+				<a part="profile-link link" href="" rel="noopener external">
+					<img part="avatar" src="" alt="avatar" decoding="async" loading="lazy" width="48" height="48" />
+					<b part="username"></b>
+				</a>
+			</div>
+		</div>
+		<div part="error">
+			<a href="" part="error-link link">
+				<b>Error:</b>
+				<span part="error-message"></span>
+			</a>
+		</div>
+	</body>
+</html>
